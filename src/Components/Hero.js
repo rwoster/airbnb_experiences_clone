@@ -1,13 +1,15 @@
 import React from "react";
 
 // image
-import PhotoGrid from "../Images/photo-grid.png";
+// import PhotoGrid from "../Images/photo-grid.png";
 
 export default function Hero() {
   return (
     <section className="hero--container">
       <img
-        src={PhotoGrid}
+        src={
+          process.env.PUBLIC_URL + `./Images/photo-grid.png`
+        }
         alt="grid"
         className="hero--photo"
       />

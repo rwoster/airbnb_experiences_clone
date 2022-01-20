@@ -1,9 +1,6 @@
 import React from "react";
 
-import Star from "../Images/star.png";
-import Katie from "../Images/katie-zaferes.png";
-
-export default function Card() {
+export default function Card(props) {
   // - Make sure to include:
   //   - image
   //   - star icon (star.png), rating, and review count
@@ -12,19 +9,27 @@ export default function Card() {
   return (
     <div className="card">
       <img
-        src={Katie}
-        alt="Katie Zaferes"
+        src={
+          process.env.PUBLIC_URL + `./Images/${props.img}`
+        }
+        alt="host headshot"
         className="card--image"
       />
       <div className="card--stats">
-        <img src={Star} alt="star" className="card--star" />
-        <span>5.0</span>
-        <span className="gray">(6) • </span>
-        <span className="gray">USA</span>
+        <img
+          src={process.env.PUBLIC_URL + `./Images/star.png`}
+          alt="star"
+          className="card--star"
+        />
+        <span>{props.rating}</span>
+        <span className="gray">({props.reviewCount})</span>
+        <span>•</span>
+        <span className="gray">{props.country}</span>
       </div>
-      <p>Life Lessons with Katie Zaferes</p>
+      <p>{props.title}</p>
       <p>
-        <span className="bold">From $136</span> / person
+        <span className="bold">From ${props.price}</span> /
+        person
       </p>
     </div>
   );
